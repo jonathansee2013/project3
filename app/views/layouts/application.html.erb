@@ -9,6 +9,27 @@
   </head>
 
   <body>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <header class="navbar navbar-default">
+      <div class="navbar-class">
+        <div class="container">
+
+          <ul>
+
+            <%=link_to "HOME", about_path%></li>
+            <%=link_to "ABOUT", about_path%></li>
+
+          </ul>
+
+        </div>
+      </div>
+    </header>
+
     <%= yield %>
+
+
   </body>
 </html>

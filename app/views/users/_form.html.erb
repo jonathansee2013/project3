@@ -1,0 +1,60 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+
+      <%= form_for @user, url: signup_path do |f| %>
+
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control", placeholder: "Username" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Email Address" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :gender %>
+        <%= f.text_field :gender, class: "form-control", placeholder: "Male or Female" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :birthdate %>
+        <%= f.date_field :dob, class: "form-control", placeholder: "Date of Birth" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :country %>
+        <%= f.text_field :country, class: "form-control", placeholder: "Country" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :interests %>
+        <%= f.text_field :interest, class: "form-control", placeholder: "Interests" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Submit", class:"btn btn-info" %>
+      </div>
+
+      <% end %>
+
+      </div>
+
+    <div class="col-md-4"></div>
+  </div>
+</div>

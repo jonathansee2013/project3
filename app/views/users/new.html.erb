@@ -9,18 +9,21 @@
     <h1>Sign Up</h1>
     </div>
 
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+
+    </div>
   </div>
 </div>
 
   <%= render partial: 'form' %>
 
-    <% if @user.errors.any? %>
+  <% if @user.errors.any? %>
 
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
     <% end %>
+  </ul>
+
+  <% end %>

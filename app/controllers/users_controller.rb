@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 #
-# before_action :check_if_logged_in, only: [:edit, :update, :destroy]
+before_action :check_if_logged_in, only: [:edit, :update, :destroy]
 # before_action :check_if_admin, only: [:index]
 before_action :get_user, only: [:show, :edit, :update, :destroy]
 
@@ -13,6 +13,14 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @age = age( @user.dob )
+  end
+
+  def age(dob)
+
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+
   end
 
   def new
@@ -27,11 +35,16 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
-      # raise "hell"
       render :new
-
     end
+  end
 
+  def search
+  end
+
+
+  def result
+    @results = user_search
   end
 
   def edit
@@ -41,7 +54,7 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
   def update
 
     @user = @current_user
-    @user.update profile_params
+    @user.update user_params
 
     redirect_to user_path(params["id"])
 
@@ -55,11 +68,36 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
-  end
-
-  def profile_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :gender, :dob, :country, :interest)
   end
+
+  def user_search
+    gender = params[:gender]
+    min_age = params[:minimum_age]
+    max_age = params[:maximum_age]
+    country = params[:country]
+    interest = params[:interest]
+
+    # https://stackoverflow.com/questions/18236607/search-for-users-age-based-on-date-of-birth
+    # if min_age.present? && max_age.present?
+    #   min = [ min_age, max_age ].min
+    #   max = [ min_age, max_age ].max
+    #   min_date = Date.today - min.years
+    #   max_date = Date.today - max.years
+    #   users = users.where("birthday BETWEEN ? AND ?", max_date, min_date)
+    # end
+
+    users = User.order(:username)
+    users = users.where(gender: gender) if gender.present?
+    users = users.where("dob <= ?", Date.today - min_age.to_i.years) if min_age.present?
+    users = users.where("dob >= ?", Date.today - max_age.to_i.years) if max_age.present?
+    users = users.where("country like ?", "%#{country}%") if country.present?
+    users = users.where("interest like ?", "%#{interest}%") if interest.present?
+    # SQL substring search: interest like '%dogs%'
+    users
+  end
+  # def profile_params
+  #   params.require(:user).permit(:username, :email, :password, :password_confirmation, :gender, :dob, :country, :interest)
+  # end
 
 end

@@ -1,6 +1,6 @@
 
 <div class="container">
-  <form>
+
     <div class="row">
 
       <div class="col-md-4"></div>
@@ -18,21 +18,22 @@
 
         <%= form_tag(login_path) do %>
 
-        <!-- <form action="/login" method="post"> -->
 
-        <div class="form-group">
-          <label>Email address</label>
+        <!-- <div class="form-group"> -->
+          <!-- <label>Email address</label> -->
+          <%= label_tag 'Email' %>
           <%= email_field_tag :email, nil, class: "form-control", placeholder: "Email address" %>
-        </div>
+        <!-- </div> -->
 
-        <div class="form-group">
-          <label>Password</label>
+        <!-- <div class="form-group"> -->
+          <!-- <label>Password</label> -->
+          <%= label_tag 'Password' %>
           <%= password_field_tag :password, nil, class: "form-control", placeholder: "Password" %>
-        </div>
+        <!-- </div> -->
 
-        <div class="form-group">
+        <!-- <div class="form-group"> -->
           <%= submit_tag "Login", class: "btn btn-info" %>
-        </div>
+        <!-- </div> -->
 
         <% end %>
       <!-- </form> -->
@@ -46,5 +47,5 @@
         <div class="col-md-4"></div>
 
     </div> <!-- row -->
-  </form>
+
 </div> <!--container -->

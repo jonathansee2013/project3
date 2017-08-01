@@ -8,16 +8,15 @@
 
         <h1>All Users</h1>
 
-        <ul>
           <% @users.each do |u| %>
-            <li>
+            <div>
               <%= link_to u.username, user_path(u.id) %>
               <% if u.is_admin %>
               (admin)
               <% end %>
-            </li>
+            </div>
           <% end %>
-        </ul>
+
 
         <div class="col-md-4"></div>
 

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+    <h1>Search Results</h1>
+
+      <% @results.each do |user| %>
+
+      <%#= user.inspect %><br>
+
+
+        <div>
+           <%= link_to user.username, user_path(user.id) %>
+        </div>
+  
+      <% end %>
+    </div>
+
+  <div class="col-md-4"></div>
+</div>

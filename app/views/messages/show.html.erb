@@ -7,13 +7,14 @@
 
       <div class="col-md-8">
 
-        <h1>Message History</h1>
+        <h1 class="text-center">Message History</h1>
 
         <% @all_messages.each do |m| %>
 
-        <div class="rounded">
-          <%= m.sender.username %> wrote:
-          <p> <%= m.content %> PUBLISHED <%= time_ago_in_words Time.now %> ago.</p>
+        <div>
+          <p> <%= m.sender.username %> wrote:</p>
+          <p> <%= m.content %> </p>
+          <p> Posted: <%= time_ago_in_words(m.created_at) %> ago </p>
           <hr>
         </div>
           <% end %>

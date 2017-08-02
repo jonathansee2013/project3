@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 #
-before_action :check_if_logged_in, only: [:edit, :update, :destroy]
+before_action :check_if_logged_in, only: [:index, :show, :edit, :update, :search, :destroy]
 # before_action :check_if_admin, only: [:index]
 before_action :get_user, only: [:show, :edit, :update, :destroy]
 
@@ -33,7 +33,7 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
 
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
-      user.image = req["public_id"]
+      @user.image = req["public_id"]
 
     if @user.save
       session[:user_id] = @user.id

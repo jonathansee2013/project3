@@ -3,10 +3,10 @@
     <div class='card'>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <%= link_to 'Profiles', root_path, class: "nav-link #{yield(:profile_active)}" %>
+          <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
         </li>
         <li class="list-group-item">
-          <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
+          <%= link_to 'Profiles', root_path, class: "nav-link #{yield(:profile_active)}" %>
         </li>
         <li class="list-group-item">
           <%= link_to 'Messages', messages_path, class: "nav-link #{yield(:messages_active)}" %>
@@ -37,10 +37,10 @@
     </button>
     <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
       <li class="nav-item">
-        <%= link_to 'Profiles', root_path, class: "nav-link #{yield(:profile_active)}" %>
+        <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
+        <%= link_to 'Profiles', root_path, class: "nav-link #{yield(:profile_active)}" %>
       </li>
       <li class="nav-item">
       <%= link_to 'Messages', messages_path, class: "nav-link #{yield(:messages_active)}" %>

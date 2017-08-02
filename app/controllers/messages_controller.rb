@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 
 before_action :check_if_logged_in, only: [:destroy]
 before_action :get_message, only: [:show, :destroy]
+before_action :fetch_user
 
   def get_message
     @message = Message.find params["id"]
@@ -28,6 +29,9 @@ before_action :get_message, only: [:show, :destroy]
   end
 
   def show
+
+    @all_messages = Message.where("(sender_id = #{@current_user.id}) or receiver_id = #{@current_user.id}").order(created_at: :desc)
+
   end
 
   def destroy

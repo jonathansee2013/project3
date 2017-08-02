@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create username: "Abraham", email: "abraham@gmail.com", password: "chicken", image:"https://s-media-cache-ak0.pinimg.com/736x/89/a5/76/89a57643cdabc92bdd11feff9450ec57--hairstyles-men-mens-hairstyle.jpg", is_admin:"false", gender:"Male", dob:"1968/10/12", country:"Australia", interest:"sports"
+u1 = User.create username: "Abraham", email: "abraham@gmail.com", password: "chicken", image:"https://s-media-cache-ak0.pinimg.com/736x/89/a5/76/89a57643cdabc92bdd11feff9450ec57--hairstyles-men-mens-hairstyle.jpg", is_admin:"false", gender:"Male", dob:"1968/10/12", country:"Australia", interest:"sports", description:"I like summer, beach, jogging by the ocean vibes, climbing rocks, adventure. I liked chemistry in high school and I like chemistry when it functions with good vibes (physics)."
 
-u2 = User.create username: "Barbara", email: "barbara@gmail.com", password: "chicken", image:"https://s-media-cache-ak0.pinimg.com/originals/83/01/37/8301375d44ab14641a4f91214ffbd5bb.jpg", is_admin:"false", gender:"Female", dob:"1990/08/15", country:"USA", interest:"books"
+u2 = User.create username: "Barbara", email: "barbara@gmail.com", password: "chicken", image:"https://s-media-cache-ak0.pinimg.com/originals/83/01/37/8301375d44ab14641a4f91214ffbd5bb.jpg", is_admin:"false", gender:"Female", dob:"1990/08/15", country:"USA", interest:"books", description:"An easy going, laid back, genuine, down to earth, kind, trustworthy, gentle, considerate, generous, open minded, gal looking for the same."
 
-u3 = User.create username: "Charles", email: "charles@gmail.com", password: "chicken", image:"http://www3.pictures.gi.stylebistro.com/Leonardo+DiCaprio+Short+Hairstyles+Short+Wavy+XQw5pdln0N6l.jpg", is_admin:"false", gender:"Male", dob:"1974/11/11", country:"Canada", interest:"automobiles"
+u3 = User.create username: "Charles", email: "charles@gmail.com", password: "chicken", image:"http://www3.pictures.gi.stylebistro.com/Leonardo+DiCaprio+Short+Hairstyles+Short+Wavy+XQw5pdln0N6l.jpg", is_admin:"false", gender:"Male", dob:"1974/11/11", country:"Canada", interest:"automobiles", description:"An easy going, laid back, genuine, down to earth, kind, trustworthy, gentle, considerate, generous, open minded, gal looking for the same."
 
-u4 = User.create username: "Denise", email: "denise@gmail.com", password: "chicken", image:"https://astrology-live-yoq2ao8jnrh6vktpia.netdna-ssl.com/wp-content/uploads/celebrities/717095kim-kardashian.jpg", is_admin:"false", gender:"Female", dob:"1980/10/21", country:"New Zealand", interest:"fashion"
+u4 = User.create username: "Denise", email: "denise@gmail.com", password: "chicken", image:"https://astrology-live-yoq2ao8jnrh6vktpia.netdna-ssl.com/wp-content/uploads/celebrities/717095kim-kardashian.jpg", is_admin:"false", gender:"Female", dob:"1980/10/21", country:"New Zealand", interest:"fashion", description:"Down to earth, genuine. Still relatively new to all this."
 
-u5 = User.create username: "Gordon", email: "gordon@gmail.com", password: "chicken", image:"http://www.thedailytop.com/wp-content/uploads/2014/07/614efd3abde4501f047f2d00f5191fa1.jpg", is_admin:"true", gender:"Male", dob:"1981/02/17", country:"USA", interest:"music"
+u5 = User.create username: "Gordon", email: "gordon@gmail.com", password: "chicken", image:"http://www.thedailytop.com/wp-content/uploads/2014/07/614efd3abde4501f047f2d00f5191fa1.jpg", is_admin:"true", gender:"Male", dob:"1981/02/17", country:"USA", interest:"music", description:"I am well educated person who enjoy and appreciate what life has to offer. I like to play golf and tennis."
 
 puts "Created #{ User.all.length } users."
 

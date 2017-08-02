@@ -14,12 +14,12 @@
 
       <div class="form-group">
         <%= f.label :gender %>
-        <%= f.select :gender,[ 'Male', 'Female' ], :prompt => 'Select One', class: "form-control", class:"btn-primary dropdown-toggle" %>
+        <%= f.select :gender,[ 'Male', 'Female' ], :prompt => 'Select One', class:"form-control btn-primary dropdown-toggle", class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= f.label :birthdate %>
-        <%= f.date_field :dob, placeholder: "Date of Birth" %>
+        <%= f.date_field :dob, placeholder: "Date of Birth", class: "form-control" %>
       </div>
 
       <div class="form-group">

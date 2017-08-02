@@ -1,21 +1,33 @@
 <div class="container">
+
   <div class="row">
-    <div class="col-md-4"></div>
 
-    <div class="col-md-4">
-    <h1>Search Results</h1>
+    <div class="col-md-3"></div>
 
-      <% @results.each do |user| %>
+    <div class="col-md-6">
 
-      <%#= user.inspect %><br>
+      <h1>Search Results</h1>
 
+        <% @results.each do |u| %>
 
-        <div>
-           <%= link_to user.username, user_path(user.id) %>
+        <div class="img-thumbnail row">
+
+          <%= cl_image_tag(u.image, :width=>150, :height=>200, :crop=>'crop', :gravity=>'face', :secure=>true) %>
+
+          <div class="float-right">
+            <%= link_to u.username, user_path(u.id) %>
+            <% if u.is_admin %>
+            (admin)
+            <% end %>
+            <br />
+            <%= link_to u.gender, user_path(u.id) %>
+          </div>
+
         </div>
-  
-      <% end %>
-    </div>
+        <% end %>
 
-  <div class="col-md-4"></div>
+    <div class="col-md-3"></div>
+
+  </div>
+
 </div>

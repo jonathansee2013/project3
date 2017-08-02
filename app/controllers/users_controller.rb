@@ -31,12 +31,17 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
 
     @user = User.new user_params
 
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      user.image = req["public_id"]
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
       render :new
     end
+  end
   end
 
   def search

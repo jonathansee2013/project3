@@ -8,6 +8,11 @@
 
 
         <div class="form-group">
+        <p>PhotoXXX: <img src="<%= @user.image %>" class="img-thumbnail"> </p>
+        </div>
+
+
+        <div class="form-group">
         <p>Username: <%= @user.username %> </p>
         </div>
 
@@ -37,7 +42,7 @@
           <%= link_to 'Delete', user_path(@user), method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
         </div>
-        
+
         <div>
           <%= link_to 'Back to All Users', users_path %>
         </div>

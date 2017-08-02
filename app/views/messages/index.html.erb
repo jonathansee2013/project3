@@ -1,2 +1,30 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<div class="container">
+
+    <div class="row">
+
+      <div class="col-md-2"></div>
+
+      <div class="col-md-8">
+
+        <h1>Inbox</h1>
+          <% @current_user.received_messages.each do |m| %>
+            <div>
+              <%= link_to m.sender.username, message_path(m) %>
+              <%= time_ago_in_words(m.created_at) %>
+            </div>
+          <% end %>
+
+          <h1>Sent</h1>
+          <% @current_user.sent_messages.each do |m| %>
+            <div>
+              <%= link_to m.receiver.username, message_path(m) %>
+              <%= time_ago_in_words(m.created_at) %>
+            </div>
+          <% end %>
+
+
+        <div class="col-md-2"></div>
+
+    </div> <!-- row -->
+
+</div> <!--container -->

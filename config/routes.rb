@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'messages/index'
-
-  get 'messages/new'
-
-  get 'messages/create'
-
-  get 'messages/show'
-
-  get 'messages/destroy'
 
   root to: 'users#index'
 
@@ -27,7 +18,14 @@ Rails.application.routes.draw do
   get '/users/search' => 'users#search'
   post '/users/result' => 'users#result'
 
+  # get 'messages/index' => 'messages#index'
+  # get 'messages/new' => 'messages#new'
+  # get 'messages/create' => 'messages#create'
+  # get 'messages/:id' => 'messages#show'
+  # get 'messages/destroy' => 'messages#destroy'
+
   resources :users
+  resources :messages
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

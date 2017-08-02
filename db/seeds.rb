@@ -20,11 +20,14 @@ u5 = User.create username: "Gordon", email: "gordon@gmail.com", password: "chick
 puts "Created #{ User.all.length } users."
 
 Message.destroy_all
-m1 = Message.create content:"Matty is", sender_id:u1.id, receiver_id:u2.id
-m2 = Message.create content:"Gory stuff", sender_id:u5.id, receiver_id:u4.id
-m3 = Message.create content:"How can I", sender_id:u2.id, receiver_id:u5.id
-m4 = Message.create content:"Go through my life", sender_id:u3.id, receiver_id:u4.id
-m5 = Message.create content:"Without you", sender_id:u4.id, receiver_id:u1.id
-m6 = Message.create content:"And tell me why", sender_id:u2.id, receiver_id:u5.id
+m1 = Message.create content:"Seitan 8-bit fanny pack locavore intelligentsia. Banjo chia scenester squid, 90's hella twee dreamcatcher. Ennui gluten-free actually, neutra pour-over ramps occupy cold-pressed bitters pitchfork YOLO meh shoreditch plaid. ", sender_id:u1.id, receiver_id:u2.id
+m2 = Message.create content:"Leggings vape master cleanse direct trade semiotics succulents hella try-hard literally gentrify. Freegan farm-to-table hoodie cred vice narwhal readymade fashion axe godard master cleanse. Subway tile small batch green juice pug lyft raw denim.", sender_id:u5.id, receiver_id:u4.id
+m3 = Message.create content:"Biodiesel fanny pack put a bird on it kombucha chia sustainable tote bag echo park pour-over. Woke tbh gastropub lo-fi street art twee prism shabby chic fashion axe flannel food truck lomo banh mi.", sender_id:u2.id, receiver_id:u5.id
+m4 = Message.create content:"Brunch mlkshk next level shaman taiyaki tacos, quinoa vaporware hammock occupy. Readymade hella swag, everyday carry blog man braid truffaut meditation sartorial plaid hashtag. Celiac vinyl prism pitchfork echo park 3 wolf moon farm-to-table intelligentsia whatever glossier. ", sender_id:u3.id, receiver_id:u4.id
+m5 = Message.create content:"Umami tattooed blue bottle, keffiyeh succulents fixie man bun listicle portland occupy pickled intelligentsia irony tilde. Polaroid activated charcoal chillwave locavore, fingerstache keytar pinterest unicorn godard lumbersexual stumptown wolf jianbing actually. DIY kitsch ramps irony, poke biodiesel viral snackwave cronut chicharrones small batch direct trade knausgaard. Brunch tacos tumblr post-ironic street art.", sender_id:u4.id, receiver_id:u1.id
+m6 = Message.create content:"Flannel mumblecore enamel pin, fixie before they sold out photo booth pabst 3 wolf moon neutra gentrify tumblr narwhal cray. Bespoke actually normcore green juice williamsburg tacos cred next level bushwick venmo. Cloud bread mixtape yr tacos,Flannel mumblecore enamel pin, fixie before they sold out photo booth pabst 3 wolf moon neutra gentrify tumblr narwhal cray. Bespoke actually normcore green juice williamsburg tacos cred next level bushwick venmo. Cloud bread mixtape yr tacos", sender_id:u2.id, receiver_id:u5.id
+
+m7 = Message.create content:"Cronut organic ugh hoodie, dreamcatcher single-origin coffee photo booth cliche bicycle rights migas vinyl portland. Neutra ugh tousled stumptown ethical, banjo affogato keytar. Art party meggings asymmetrical scenester taxidermy poutine yr wolf ethical yuccie small batch venmo. Cronut vape kinfolk direct trade yuccie. Man braid etsy brunch cardigan stumptown, yuccie organic neutra cloud bread helvetica austin whatever. ", sender_id:u1.id, receiver_id:u4.id
+
 
 puts "Created #{ Message.all.length } messages."

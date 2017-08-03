@@ -2,12 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.users.new {
-  background-image: image-url('i_am_grateful.jpeg');
+
+
+body.users {
+  background-color: #AFD0D6;
+  background-image: image-url('jeans.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  // font-family: 'Yesteryear', cursive !important;
-  // font-size: 30px;
+}
+
+body.users.new {
+  background-image: image-url('i_am_grateful.jpeg');
+}
+
+body.users.search {
+  background-image: image-url('flowers_rails.jpeg');
 }
 
 #login {

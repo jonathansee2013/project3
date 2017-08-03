@@ -74,7 +74,11 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
   def destroy
     @user.destroy
 
-    redirect_to signup_path
+    if @current_user.is_admin?
+      redirect_to users_path
+    else
+      redirect_to signup_path
+    end
   end
 
   private

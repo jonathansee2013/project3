@@ -8,15 +8,9 @@
 
         <%= form_tag send_message_path(params[:receiver_id]) do %>
           <p><%= text_area_tag :content, nil, size: "65x15" %><p>
-            <p class="text-center"><%= submit_tag "Send", class: "btn btn-info" %></p>
+          <p class="text-center"><%= submit_tag "Send", class: "btn btn-info" %></p>
         <% end %>
 
-
-        <!-- <div class="form-group">
-
-          <p><%= text_area_tag :content, nil, size: "65x15" %><p>
-          <p class="text-center"><%= submit_tag "Send", class: "btn btn-info" %></p>
-        </div> -->
       </div>
     </div>
 

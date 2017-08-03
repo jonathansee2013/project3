@@ -6,7 +6,9 @@
 
       <div class="col-md-6">
 
-        <h1 class="text-center">Profiles of Users</h1>
+        <div class="card">
+        <h1 class="text-center">Users</h1>
+        <div class="card-block">
 
           <% @users.each do |u| %>
 
@@ -21,13 +23,17 @@
               <% end %>
               <br />
               <p>Gender: <%= u.gender %></p>
+
             </div>
 
           </div>
           <% end %>
 
+        </div>
 
-        <div class="col-md-3"></div>
+        </div>
+
+      <div class="col-md-3"></div>
 
     </div> <!-- row -->
 

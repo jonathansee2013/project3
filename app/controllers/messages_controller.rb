@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
 
-# before_action :check_if_logged_in
+before_action :check_if_logged_in
 before_action :get_message, only: [:destroy]
-before_action :fetch_user
 
   def get_message
     @message = Message.find params["id"]
@@ -22,7 +21,7 @@ before_action :fetch_user
       receiver_id: params["receiver_id"],
       sender_id: @current_user.id
     })
-    #
+    
     if @message.save
       redirect_to message_path(params[:receiver_id])
     else

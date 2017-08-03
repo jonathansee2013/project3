@@ -20,9 +20,11 @@
           <h1>Messages Sent</h1>
 
           <% @current_user.sent_messages.each do |m| %>
-          <div>
-            You sent a message to <%= link_to m.receiver.username, message_path(m.receiver_id) %> <%= time_ago_in_words(m.created_at) %>
-          </div>
+            <% if m.receiver.present? %><%#  TODO: fix seed data so there's always a receiver!!! %>
+              <div>
+                You sent a message to <%= link_to m.receiver.username, message_path(m.receiver_id) %> <%= time_ago_in_words(m.created_at) %>
+              </div>
+              <% end %>
             <% end %>
       </div>
 

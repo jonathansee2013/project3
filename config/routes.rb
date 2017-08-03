@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   # get 'messages/destroy' => 'messages#destroy'
 
   resources :users
-  resources :messages
+  resources :messages, :except => [:new, :create]
+
+  get "/messages/:receiver_id/new" => 'messages#new', :as => "new_message"
+  post "/messages/:receiver_id/send" => 'messages#create', :as => "send_message"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

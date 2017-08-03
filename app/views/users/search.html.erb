@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5"></div>
+    <div class="col-md-4"></div>
 
-    <div class="col-md-2">
+    <div class="col-md-4">
 
     <h1 class="text-center">Search</h1>
 
@@ -10,20 +10,20 @@
 
       <p>
         <%= label_tag :gender %><br />
-        <%= text_field_tag :gender %>
+        <%= text_field_tag :gender, nil, :size => 45 %>
       </p>
       <p>
-        Age Between<br />
-        <%= text_field_tag :minimum_age, nil, :size => 7 %> -
-        <%= text_field_tag :maximum_age, nil, :size => 7 %>
+        Age Between <br />
+        <%= text_field_tag :minimum_age, nil, :size => 18 %> to
+        <%= text_field_tag :maximum_age, nil, :size => 18 %>
       </p>
       <p>
         <%= label_tag :country %><br />
-        <%= text_field_tag :country %>
+        <%= text_field_tag :country, nil, :size => 45  %>
       </p>
       <p>
         <%= label_tag :interest %><br />
-        <%= text_field_tag :interest %>
+        <%= text_field_tag :interest, nil, :size => 45 %>
       </p>
       <p><%= submit_tag "Search", class: "btn btn-info" %></p>
 
@@ -33,6 +33,6 @@
 
     </div>
 
-    <div class="col-md-5"></div>
+    <div class="col-md-4"></div>
   </div>
 </div>

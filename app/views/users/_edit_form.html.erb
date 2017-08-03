@@ -4,17 +4,18 @@
     <div class="col-md-4"></div>
 
     <div class="col-md-4">
+      <fieldset>
 
-      <%= form_for @user do |f| %>
+      <%= form_for @user, { html: { multipart: true } } do |f| %>
 
       <div class="form-group">
         <%= f.label :image %>
-        <%= f.file_field :image, class: "form-control" %>
+        <%= f.cl_image_upload :image, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= f.label :gender %>
-        <%= f.select :gender,[ 'Male', 'Female' ], :prompt => 'Select One', class:"form-control btn-primary dropdown-toggle", class: "form-control" %>
+        <%= f.select :gender,[ 'Male', 'Female' ], :prompt => 'Select One', class:"btn-primary dropdown-toggle" %>
       </div>
 
       <div class="form-group">
@@ -24,7 +25,7 @@
 
       <div class="form-group">
         <%= f.label :country %>
-        <%= f.select :country,[ 'Australia', 'USA', 'Canada', 'New Zealand' ], :prompt => 'Select One', placeholder: "Country", class: "form-control" %>
+        <%= f.select :country,[ 'Australia', 'USA', 'Canada', 'New Zealand' ], :prompt => 'Select One', placeholder: "Country" %>
       </div>
 
       <div class="form-group">
@@ -39,7 +40,7 @@
       <%= link_to 'Back', users_path(@user) %>
 
       <% end %>
-
+      </fieldset>
       </div>
 
     <div class="col-md-4"></div>

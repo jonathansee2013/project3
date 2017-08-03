@@ -2,28 +2,31 @@
 
     <div class="row">
 
-      <div class="col-md-2"></div>
+      <div class="col-md-1"></div>
 
-      <div class="col-md-8">
+      <div class="col-md-5">
 
-        <h1>Inbox</h1>
+          <h1>Messages Received</h1>
+
           <% @current_user.received_messages.each do |m| %>
-            <div>
-              <%= link_to m.sender.username, message_path(m) %>
-              <%= time_ago_in_words(m.created_at) %>
-            </div>
-          <% end %>
+          <div>
+            <%= link_to m.sender.username, message_path(m.sender_id) %> sent you a message <%= time_ago_in_words(m.created_at) %>
+          </div>
+            <% end %>
+      </div>
 
-          <h1>Sent</h1>
+      <div class="col-md-5">
+
+          <h1>Messages Sent</h1>
+
           <% @current_user.sent_messages.each do |m| %>
-            <div>
-              <%= link_to m.receiver.username, message_path(m) %>
-              <%= time_ago_in_words(m.created_at) %>
-            </div>
-          <% end %>
+          <div>
+            You sent a message to <%= link_to m.receiver.username, message_path(m.receiver_id) %> <%= time_ago_in_words(m.created_at) %>
+          </div>
+            <% end %>
+      </div>
 
-
-        <div class="col-md-2"></div>
+      <div class="col-md-1"></div>
 
     </div> <!-- row -->
 

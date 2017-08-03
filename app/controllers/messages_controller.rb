@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
-before_action :check_if_logged_in, only: [:index, :destroy]
-before_action :get_message, only: [:show, :destroy]
+before_action :check_if_logged_in
+before_action :get_message, only: [:destroy]
 before_action :fetch_user
 
   def get_message
@@ -17,11 +17,14 @@ before_action :fetch_user
   end
 
   def create
-    @message = Message.new message_params
-
+    @message = Message.new({
+      content: params["content"],
+      receiver_id: params["receiver_id"],
+      sender_id: @current_user.id
+    })
+    #
     if @message.save
-      session[:user_id] = @user.id
-      redirect_to message_path(@user.id)
+      redirect_to message_path(params[:receiver_id])
     else
       render :new
     end
@@ -29,9 +32,8 @@ before_action :fetch_user
   end
 
   def show
-
-    @all_messages = Message.where("(sender_id = #{@current_user.id}) or receiver_id = #{@current_user.id}").order(created_at: :desc)
-
+    query = "(sender_id = #{@current_user.id} AND receiver_id = #{params[:id]}) OR (receiver_id = #{@current_user.id} AND sender_id = #{params[:id]})"
+    @all_messages = Message.where(query).order(created_at: :desc)
   end
 
   def destroy
@@ -39,7 +41,7 @@ before_action :fetch_user
 
   private
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :receiver_id)
   end
 
 end

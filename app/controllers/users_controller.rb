@@ -30,10 +30,11 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
   def create
 
     @user = User.new user_params
-
+    # binding.pry
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       @user.image = req["public_id"]
+    end
 
     if @user.save
       session[:user_id] = @user.id
@@ -41,7 +42,7 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
     else
       render :new
     end
-  end
+
   end
 
   def search
@@ -60,6 +61,11 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
 
     @user = @current_user
     @user.update user_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @user.image = req["public_id"]
+      @user.save
+    end
 
     redirect_to user_path(params["id"])
 
@@ -73,7 +79,7 @@ before_action :get_user, only: [:show, :edit, :update, :destroy]
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :gender, :dob, :country, :interest)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :image, :gender, :dob, :country, :interest)
   end
 
   def user_search

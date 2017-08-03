@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-before_action :check_if_logged_in
+# before_action :check_if_logged_in
 before_action :get_message, only: [:destroy]
 before_action :fetch_user
 

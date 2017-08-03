@@ -2,23 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Yesteryear');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu|Yesteryear');
 
-h1, p {
-  font-family: 'Yesteryear', cursive !important;
-}
+
 
 body.pages.welcome, body.pages.about {
-  background-image: url('heart_tree.jpeg');
+  background-image: image-url('heart_tree.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
+  // font-family: 'Yesteryear', cursive !important;
+  // font-size: 30px;
 }
 
-// Add this to the login page
-// background-color: hotpink;
+#about_us, #welcome {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#about_us {
+  font-size: 20px;
+}
+
+#welcome {
+  font-size: 50px;
+  padding: 40px;
+}
 
 body.session.new {
-  background-color: hotpink;
+  background-image: image-url('i_am_grateful.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
 }

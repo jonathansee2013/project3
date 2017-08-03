@@ -4,9 +4,27 @@
     <div class="col-md-4"></div>
 
     <div class="col-md-4">
-      <fieldset>
 
       <%= form_for @user, { html: { multipart: true } } do |f| %>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control", placeholder: "Username" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Email Address" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+      </div>
 
       <div class="form-group">
         <%= f.label :image %>
@@ -40,7 +58,7 @@
       <%= link_to 'Back', users_path(@user) %>
 
       <% end %>
-      </fieldset>
+
       </div>
 
     <div class="col-md-4"></div>
